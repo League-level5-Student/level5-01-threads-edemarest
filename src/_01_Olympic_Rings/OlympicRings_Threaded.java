@@ -1,5 +1,7 @@
 package _01_Olympic_Rings;
 
+import java.awt.Color;
+
 import org.jointheleague.graphical.robot.Robot;
 
 public class OlympicRings_Threaded {
@@ -18,35 +20,66 @@ public class OlympicRings_Threaded {
 		r5.setSpeed(10);
 		
 
-		r1.moveTo(0, 700);
-		r2.moveTo(200, 700);
-		r3.moveTo(400, 700);
-		r4.moveTo(600, 700);
-		r5.moveTo(800, 700);
+		r1.moveTo(0, 100);
+		r2.moveTo(50, 150);
+		r3.moveTo(100, 100);
+		r4.moveTo(150, 150);
+		r5.moveTo(200, 100);
 		
-		Thread t1 = new Thread(()->r1.move(2));
-		Thread t2 = new Thread(()->r2.move(2));
-		Thread t3 = new Thread(()->r3.move(2));
-		Thread t4 = new Thread(()->r4.move(2));
-		Thread t5 = new Thread(()->r5.move(2));
-		Thread t6 = new Thread(()->r1.turn(2));
-		Thread t7 = new Thread(()->r2.turn(2));
-		Thread t8 = new Thread(()->r3.turn(2));
-		Thread t9 = new Thread(()->r4.turn(2));
-		Thread t10 = new Thread(()->r5.turn(2));
+		Thread t1 = new Thread(()-> {
+			r1.penDown();
+			r1.setPenColor(Color.BLUE);
+			for(int i = 0; i < 360; i++) {
+				r1.move(1);
+				r1.turn(1);
+			}
+		});
 		
-		for(int i = 0; i < 180; i ++) {
+		Thread t2 = new Thread(()-> {
+			r2.penDown();
+			r2.setPenColor(Color.YELLOW);
+			for(int i = 0; i < 360; i++) {
+				r2.move(1);
+				r2.turn(1);
+			}
+		});
+		
+		Thread t3 = new Thread(()-> {
+			r3.penDown();
+			r3.setPenColor(Color.BLACK);
+			for(int i = 0; i < 360; i++) {
+				r3.move(1);
+				r3.turn(1);
+			}
+		});
+		
+		Thread t4 = new Thread(()-> {
+			r4.penDown();
+			r4.setPenColor(Color.GREEN);
+			for(int i = 0; i < 360; i++) {
+				r4.move(1);
+				r4.turn(1);
+			}
+		});
+		
+		Thread t5 = new Thread(()-> {
+			r5.penDown();
+			r5.setPenColor(Color.RED);
+			for(int i = 0; i < 360; i++) {
+				r5.move(1);
+				r5.turn(1);
+			}
+		});
+		
+		
+		
 			t1.start();
 			t2.start();
 			t3.start();
 			t4.start();
 			t5.start();
-			t6.start();
-			t7.start();
-			t8.start();
-			t9.start();
-			t10.start();
-		}
+
+		
 
 	}
 }

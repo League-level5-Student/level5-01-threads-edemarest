@@ -17,7 +17,23 @@ public class ThreadedReverseGreeting {
 	 * Hello from thread number: 7
 	 * etc...
 	 */
-	
+	class ThreadedGreeter implements Runnable{
+		int threadNum;
+		
+		ThreadedGreeter(int threadNum){
+			this.threadNum = threadNum;
+		}
+		
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			System.out.println("Hello from thread #"+threadNum);
+			
+		}
+		
+		
+		
+	}
 	//1. Create a new class called ThreadedGreeter that implements the Runnable interface.
 	//   Be sure to implement the run() method.
 	

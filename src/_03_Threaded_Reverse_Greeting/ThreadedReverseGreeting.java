@@ -17,41 +17,21 @@ public class ThreadedReverseGreeting {
 	 * Hello from thread number: 7
 	 * etc...
 	 */
-	class ThreadedGreeter implements Runnable{
-		int threadNum;
-		
-		ThreadedGreeter(int threadNum){
-			this.threadNum = threadNum;
-		}
-		
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			System.out.println("Hello from thread #"+threadNum);
-			
-		}
-		
-		
-		
-	}
-	//1. Create a new class called ThreadedGreeter that implements the Runnable interface.
-	//   Be sure to implement the run() method.
 	
-	//2. In the ThreadedGreeter class, create a member variable of type int. 
-	//   This variable will contain the thread number. Add a constructor that will 
-	//   initialize the value of this variable
 	
-	//3. In the run method of the ThreadedGreeter class, print the message using the member variable as the thread number.
-	//   If the member integer is less than or equal to 50, create a new thread. 
-	//   Pass in a new object of the ThreadedGreeter class with the value of the member variable plus one.
-	
-	//4. Start the thread and then use the join() method to make the parent thread wait for this thread to finish.
 	
 	public static void main(String[] args) {
 		//5. Create the first thread and initialize it with an object of the ThreadedGreeter class.
 		//   The ThreadedGreeter object should be initialized with 1.
-		
+		Thread t1 = new Thread(new ThreadedGreeter(1));
 		
 		//6. Start and join the thread. Did you get the required output?
+		t1.start();
+		try {
+			t1.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

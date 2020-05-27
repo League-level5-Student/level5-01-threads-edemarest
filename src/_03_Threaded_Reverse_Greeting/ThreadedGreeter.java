@@ -25,7 +25,7 @@ class ThreadedGreeter implements Runnable{
 		
 		System.out.println("Hello from thread #"+threadNum);
 		Thread t;
-		if(threadNum<=50) {
+		if(threadNum<50) {
 			t = new Thread(new ThreadedGreeter(threadNum+1));
 			t.start();
 			try {
